@@ -99,7 +99,8 @@ export default function Calendar() {
 
       {stickyState.date && (
         <StickyNote 
-          date={stickyState.date} 
+          date={stickyState.date}
+          rangeEnd={stickyState.rangeEnd}
           x={stickyState.x} 
           y={stickyState.y} 
           onClose={closeSticky} 

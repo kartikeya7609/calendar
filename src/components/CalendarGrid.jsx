@@ -76,7 +76,9 @@ export default function CalendarGrid({
             onChange={handleGotoInput}
             onKeyDown={handleKeyDown}
           />
-          <button className="goto-btn" onClick={handleGoto}>→</button>
+          <button className="goto-btn" onClick={handleGoto} title="Press Enter or click">
+            <span>↵</span> Enter
+          </button>
         </div>
       </div>
 

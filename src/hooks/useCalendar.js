@@ -30,7 +30,7 @@ export function useCalendar() {
   }, [loadLocalData]);
 
   // Sticky Note State
-  const [stickyState, setStickyState] = useState({ date: null, x: 0, y: 0 });
+  const [stickyState, setStickyState] = useState({ date: null, rangeEnd: null, x: 0, y: 0 });
   
   // Theme state
   const [isDark, setIsDark] = useState(() => {
@@ -151,13 +151,14 @@ export function useCalendar() {
   };
 
   const openSticky = (date, x, y) => {
-    setStickyState({ date, x, y });
+    // If a full range is selected, open a range-sticky for all those dates
+    const rangeEnd = selectionStart && selectionEnd ? selectionEnd : null;
+    const startDate = selectionStart && selectionEnd ? selectionStart : date;
+    setStickyState({ date: startDate, rangeEnd, x, y });
   };
 
   const closeSticky = () => {
-    if (stickyState.date) {
-      setStickyState({ date: null, x: 0, y: 0 });
-    }
+    setStickyState({ date: null, rangeEnd: null, x: 0, y: 0 });
   };
 
   const notesKey = useMemo(() => {
