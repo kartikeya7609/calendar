@@ -81,7 +81,7 @@ export default function Calendar() {
               style={{
                 backgroundImage: monthImage ? `url(${monthImage})` : 'none',
                 opacity: isImageLoading ? 0.8 : 1,
-                transition: 'background-image 0.5s ease-in-out,  0.3s ease-in-out'
+                transition: 'background-image 0.5s ease-in-out, opacity 0.3s ease-in-out'
               }}
             >
               {/* TRUTH SERUM: If the background above fails, this standard img tag proves if the path is valid */}
